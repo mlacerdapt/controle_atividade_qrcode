@@ -48,7 +48,7 @@ def cadastrar_funcionario():
     conn.close()
     qrcode_base64 = gerar_qrcode(numero_sap)
     return render_template('qrcode.html', qrcode=qrcode_base64)
-
+    
 @app.route('/cadastro_area')
 def cadastro_area():
     return render_template('cadastro_area.html')

@@ -22,6 +22,14 @@
         <img src="data:image/png;base64,{{ qrcode }}" alt="QR Code">
     </div>
     <br>
-    <button onclick="window.history.back()">Voltar para Cadastro</button>
+    <button onclick="voltarCadastro()">Voltar para Cadastro</button>
+
+    <script>
+        function voltarCadastro() {
+            history.pushState(null, '', '/cadastro_funcionario');
+            document.getElementById('numero_sap').value = '';
+            document.getElementById('nome').value = '';
+        }
+    </script>
 </body>
 </html>

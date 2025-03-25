@@ -5,6 +5,9 @@
 </head>
 <body>
     <h1>Cadastro de Funcionário</h1>
+    {% if mensagem %}
+        <p>{{ mensagem }}</p>
+    {% endif %}
     <form method="POST" action="/cadastrar_funcionario">
         <label for="numero_sap">Número SAP:</label><br>
         <input type="text" id="numero_sap" name="numero_sap"><br><br>
