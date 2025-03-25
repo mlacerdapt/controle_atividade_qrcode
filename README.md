@@ -1,21 +1,20 @@
 # controle_atividade_qrcode
 Controle de Atividade com QR Code
 
-Perfeito! Ajustamos as entidades e o diagrama do banco de dados, e definimos Python com Flask para o backend e HTML/CSS para o frontend. Vamos refinar o planejamento e iniciar o desenvolvimento.
+* Rotas de cadastro (Funcionário, Área e Equipamento).
+* Função para gerar QR Codes e salvar o nome embaixo.
+* Tela de registro de tarefas com leitura dos QR Codes.
+* Sistema de finalização de tarefa via QR Code do funcionário.
+* Página para exibir e imprimir os QR Codes organizados.
 
 1. Estrutura do Projeto Flask
-Vamos criar a estrutura básica do projeto Flask:
-
-nome_do_projeto/
-├── app.py          # Arquivo principal do Flask
-├── templates/      # Pasta para os arquivos HTML
-│   ├── cadastro_funcionario.html
-│   ├── cadastro_area.html
-│   ├── cadastro_equipamento.html
-│   ├── registrar_tarefa.html
-│   └── ...
-├── static/         # Pasta para arquivos CSS, JavaScript e imagens
-│   ├── style.css
-│   ├── script.js
-│   └── ...
-└── database.db     # Banco de dados SQLite (para desenvolvimento)
+/sistema_qrcode_flask
+│
+├── app.py  <-- (o código principal que já criamos)
+│
+├── /templates  
+│   ├── index.html  
+│   └── cadastrar_funcionario.html  
+│
+└── /static  
+    └── /qrcodes   <-- (pasta onde os QR Codes serão salvos)
