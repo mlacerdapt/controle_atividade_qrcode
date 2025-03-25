@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Relatório de Funcionários</title>
+</head>
+<body>
+    <h1>Relatório de Funcionários</h1>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Ação</th>
+        </tr>
+        {% for funcionario in funcionarios %}
+        <tr>
+            <td>{{ funcionario.id }}</td>
+            <td>{{ funcionario.nome }}</td>
+            <td>
+                <a href="/excluir/funcionario/{{ funcionario.id }}" onclick="return confirm('Tem certeza de que deseja excluir este funcionário e o QR Code correspondente?');">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="/">Voltar</a>
+</body>
+</html>

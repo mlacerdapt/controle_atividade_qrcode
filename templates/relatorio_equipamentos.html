@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Equipamentos</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        h1 {
+            color: #333;
+        }
+        .btn-excluir {
+            color: red;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .btn-excluir:hover {
+            color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <h1>Relatório de Equipamentos</h1>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nome do Equipamento</th>
+            <th>Código do Equipamento</th>
+            <th>Ação</th>
+        </tr>
+        {% for equipamento in equipamentos %}
+        <tr>
+            <td>{{ equipamento.id }}</td>
+            <td>{{ equipamento.nome }}</td>
+            <td>{{ equipamento.codigo_equipamento }}</td>
+            <td>
+                <a href="/excluir/equipamento/{{ equipamento.id }}" class="btn-excluir" onclick="return confirm('Tem certeza que deseja excluir este equipamento e o QR Code correspondente?');">Excluir</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="/">Voltar</a>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Equipamento</title>
+</head>
+<body>
+    <h1>Cadastrar Equipamento</h1>
+    <form method="post">
+        <label for="nome">Nome do Equipamento:</label>
+        <input type="text" name="nome" required><br>
+
+        <label for="codigo">Código do Equipamento:</label>
+        <input type="text" name="codigo" required><br>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+
+    <a href="/">Voltar</a>
+</body>
+</html>

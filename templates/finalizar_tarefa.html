@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Finalizar Tarefa</title>
+</head>
+<body>
+    <h1>Finalizar Tarefa</h1>
+    
+    <p>Leia o QR Code do Funcionário para finalizar a tarefa.</p>
+
+    <form action="/finalizar_tarefa/{{ tarefa_id }}" method="POST">
+        <label for="funcionario_qr">QR Code do Funcionário:</label>
+        <input type="text" id="funcionario_qr" name="funcionario_qr" readonly>
+        <br><br>
+
+        <button type="submit">Finalizar Tarefa</button>
+    </form>
+
+    <a href="/">Voltar</a>
+
+    <script>
+        // Função para iniciar a leitura do QR Code
+        const readQRCode = (inputId) => {
+            const video = document.createElement('video');
+            const scanner = new QrScanner(video, result => {
+                document.getElementById(inputId).value = result;
+                scanner.stop();  // Para de ler após capturar o QR Code
+            });
+
+            // Inicia a leitura do QR Code
+            scanner.start();
+        };
+
+        // Quando o campo de funcionário for clicado, começa a leitura do QR Code
+        document.getElementById('funcionario_qr').addEventListener('click', () => readQRCode('funcionario_qr'));
+    </script>
+
+    <script src="https://unpkg.com/qr-scanner/qr-scanner.min.js"></script>
+</body>
+</html>
