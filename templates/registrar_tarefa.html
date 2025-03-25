@@ -1,49 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Registrar Tarefa</title>
 </head>
 <body>
     <h1>Registrar Tarefa</h1>
-    
-    <form action="/registrar_tarefa" method="POST">
-        <label for="area_qr">QR Code da Área:</label>
-        <input type="text" id="area_qr" name="area_qr" readonly>
-        <br><br>
-
-        <label for="equipamento_qr">QR Code do Equipamento:</label>
-        <input type="text" id="equipamento_qr" name="equipamento_qr" readonly>
-        <br><br>
-
-        <label for="funcionario_qr">QR Code do Funcionário:</label>
-        <input type="text" id="funcionario_qr" name="funcionario_qr" readonly>
-        <br><br>
-
-        <button type="submit">Registrar Tarefa</button>
+    <form method="POST" action="/iniciar_tarefa">
+        <label for="funcionario_codigo">Código do Funcionário:</label><br>
+        <input type="text" id="funcionario_codigo" name="funcionario_codigo"><br><br>
+        <label for="area_codigo">Código da Área:</label><br>
+        <input type="text" id="area_codigo" name="area_codigo"><br><br>
+        <label for="equipamento_codigo">Código do Equipamento:</label><br>
+        <input type="text" id="equipamento_codigo" name="equipamento_codigo"><br><br>
+        <input type="submit" value="Iniciar Tarefa">
     </form>
-
-    <a href="/">Voltar</a>
-
-    <script>
-        // Implementando a leitura de QR Code via JavaScript
-        const readQRCode = (inputId) => {
-            const video = document.createElement('video');
-            const scanner = new QrScanner(video, result => {
-                document.getElementById(inputId).value = result;
-                scanner.stop();  // Parar após ler o QR Code
-            });
-
-            // Iniciar o scanner
-            scanner.start();
-        };
-
-        // Chama a função para cada campo ao receber o foco (ou ao clicar)
-        document.getElementById('area_qr').addEventListener('click', () => readQRCode('area_qr'));
-        document.getElementById('equipamento_qr').addEventListener('click', () => readQRCode('equipamento_qr'));
-        document.getElementById('funcionario_qr').addEventListener('click', () => readQRCode('funcionario_qr'));
-    </script>
-
-    <script src="https://unpkg.com/qr-scanner/qr-scanner.min.js"></script>
+    <form method="POST" action="/finalizar_tarefa">
+        <label for="funcionario_codigo">Código do Funcionário:</label><br>
+        <input type="text" id="funcionario_codigo" name="funcionario_codigo"><br><br>
+        <input type="submit" value="Finalizar Tarefa">
+    </form>
 </body>
 </html>
